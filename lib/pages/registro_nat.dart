@@ -9,19 +9,17 @@ class RegistroNatPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Registro de persona natural'),
         backgroundColor: Color(0xff0096C7),
-        
       ),
-
       body: ListView(children: const <Widget>[
         Text(
           'Mis datos personales',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontFamily: 'Rosario',
-            fontWeight: FontWeight.bold,
-            fontSize: 30),
+              fontFamily: 'Rosario', fontWeight: FontWeight.bold, fontSize: 30),
         ),
-        Image(image: NetworkImage('https://cdn.pixabay.com/photo/2016/02/11/16/59/dog-1194083_1280.jpg')),
+        Image(
+            image: NetworkImage(
+                'https://cdn.pixabay.com/photo/2016/02/11/16/59/dog-1194083_1280.jpg')),
         TextField(
           decoration: InputDecoration(
             labelText: 'Nombre',
@@ -32,25 +30,16 @@ class RegistroNatPage extends StatelessWidget {
             labelText: 'Apellido',
           ),
         ),
-
-
-
         TextField(
           decoration: InputDecoration(
             labelText: 'Número de identificación',
           ),
         ),
-
-
-
         TextField(
           decoration: InputDecoration(
             labelText: 'Ciudad de residencia',
           ),
         ),
-
-
-
         TextField(
           decoration: InputDecoration(
             labelText: 'Número de celular',
@@ -66,7 +55,6 @@ class RegistroNatPage extends StatelessWidget {
             labelText: 'Contraseña',
           ),
         ),
-
         ElevatedButton(onPressed: null, child: Text('Guardar'))
       ]),
     );
