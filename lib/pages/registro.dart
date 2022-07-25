@@ -8,7 +8,7 @@ class RegistroPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Registro'),
-        backgroundColor: Color(0xff0096C7),
+        backgroundColor: const Color(0xff0096C7),
         
       ),
       body: ListView(children: <Widget>[

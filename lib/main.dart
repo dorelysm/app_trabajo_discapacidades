@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
       ),
       //home: const MyHomePage(),
       routes: {
-        "/": (BuildContext context) => MyHomePage(),
-        "/registro": (BuildContext context) => RegistroPage(),
-        "/registro_opc":(BuildContext context) => RegistroOpcPage(),
-        "/registro_nat":(BuildContext context) => RegistroNatPage(),
-        "/login":(BuildContext context) => LoginPage(),
-        "/consultas":(BuildContext context) => ConsultasPage(),
+        "/": (BuildContext context) => const MyHomePage(),
+        "/registro": (BuildContext context) => const RegistroPage(),
+        "/registro_opc":(BuildContext context) => const RegistroOpcPage(),
+        "/registro_nat":(BuildContext context) => const RegistroNatPage(),
+        "/login":(BuildContext context) => const LoginPage(),
+        "/consultas":(BuildContext context) => const ConsultasPage(),
       }
     );
   }
