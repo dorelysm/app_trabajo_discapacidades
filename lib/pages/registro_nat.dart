@@ -8,7 +8,6 @@ class RegistroNatPage extends StatefulWidget {
 }
 
 class _RegistroNatPageState extends State<RegistroNatPage> {
-
   GlobalKey<FormState> keyForm = GlobalKey();
   TextEditingController nombreTextController = TextEditingController();
   TextEditingController apellidoTextController = TextEditingController();
@@ -36,49 +35,45 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
       ),
     );
   }
-  
+
   //Diseño de los elementos del formulario
   formItemsDesign(icon, item) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 7),
-      child: Card(child: ListTile(
-        leading: Icon(icon), 
-        title: item)),
+      child: Card(child: ListTile(leading: Icon(icon), title: item)),
     );
   }
 
   void _showHome(BuildContext context) {
     Navigator.of(context).pushNamed("/");
   }
-  
+
   String tipoId = 'cc';
 
   Widget formularioRegistro() {
     return Column(
       children: <Widget>[
         formItemsDesign(
-          null,
-          TextFormField(
-            controller: nombreTextController,
-            decoration: const InputDecoration(
-              labelText: 'Nombre',
-              border: OutlineInputBorder(),
-            ),
-            //validator: validateName,
-          )
-        ),
+            null,
+            TextFormField(
+              controller: nombreTextController,
+              decoration: const InputDecoration(
+                labelText: 'Nombre',
+                border: OutlineInputBorder(),
+              ),
+              //validator: validateName,
+            )),
 
         formItemsDesign(
-          null,
-          TextFormField(
-            controller: apellidoTextController,
-            decoration: const InputDecoration(
-              labelText: 'Apellido',
-              border: OutlineInputBorder(),
-            ),
-            //validator: validateName,
-          )
-        ),
+            null,
+            TextFormField(
+              controller: apellidoTextController,
+              decoration: const InputDecoration(
+                labelText: 'Apellido',
+                border: OutlineInputBorder(),
+              ),
+              //validator: validateName,
+            )),
 
         formItemsDesign(
           null,
@@ -95,7 +90,6 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
                   });
                 },
               ),
-
               RadioListTile<String>(
                 title: const Text('Cédula de extranjería'),
                 value: 'ce',
@@ -111,72 +105,65 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
         ),
 
         formItemsDesign(
-          null,
-          TextFormField(
-            controller: numIdTextController,
-            decoration: const InputDecoration(
-              labelText: 'Número de identificación',
-              border: OutlineInputBorder(),
-            ),
-            //validator: validateName,
-          )
-        ),
+            null,
+            TextFormField(
+              controller: numIdTextController,
+              decoration: const InputDecoration(
+                labelText: 'Número de identificación',
+                border: OutlineInputBorder(),
+              ),
+              //validator: validateName,
+            )),
 
         //Fecha de nacimiento
 
         formItemsDesign(
-          null,
-          TextFormField(
-            controller: ciudadTextController,
-            decoration: const InputDecoration(
-              labelText: 'Ciudad de residencia',
-              border: OutlineInputBorder(),
-            ),
-            //validator: validateName,
-          )
-        ),
+            null,
+            TextFormField(
+              controller: ciudadTextController,
+              decoration: const InputDecoration(
+                labelText: 'Ciudad de residencia',
+                border: OutlineInputBorder(),
+              ),
+              //validator: validateName,
+            )),
 
         //Género
 
         formItemsDesign(
-          null,
-          TextFormField(
-            controller: celularTextController,
-            decoration: const InputDecoration(
-              labelText: 'Número de celular',
-              border: OutlineInputBorder(),
-            ),
-            //validator: validateName,
-          )
-        ),
+            null,
+            TextFormField(
+              controller: celularTextController,
+              decoration: const InputDecoration(
+                labelText: 'Número de celular',
+                border: OutlineInputBorder(),
+              ),
+              //validator: validateName,
+            )),
 
         formItemsDesign(
-          null,
-          TextFormField(
-            controller: correoTextController,
-            decoration: const InputDecoration(
-              labelText: 'Correo electrónico',
-              border: OutlineInputBorder(),
-            ),
-            //validator: validateName,
-          )
-        ),
+            null,
+            TextFormField(
+              controller: correoTextController,
+              decoration: const InputDecoration(
+                labelText: 'Correo electrónico',
+                border: OutlineInputBorder(),
+              ),
+              //validator: validateName,
+            )),
 
         formItemsDesign(
-          null,
-          TextFormField(
-            controller: contrasenaTextController,
-            obscureText: true,
-            decoration: const InputDecoration(
-              labelText: 'Contraseña',
-              border: OutlineInputBorder(),
-            ),
-            //validator: validateName,
-          )
-        ),
+            null,
+            TextFormField(
+              controller: contrasenaTextController,
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'Contraseña',
+                border: OutlineInputBorder(),
+              ),
+              //validator: validateName,
+            )),
       ],
     );
   }
-
-  
 }

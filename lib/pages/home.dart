@@ -6,7 +6,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xffEEF8FB),
         body: ListView(children: <Widget>[
           const Text(
             'Home',
@@ -14,7 +14,7 @@ class MyHomePage extends StatelessWidget {
             style: TextStyle(
                 fontFamily: 'Rosario',
                 fontWeight: FontWeight.bold,
-                fontSize: 40),
+                fontSize: 50),
           ),
           // Boton de Login
           ElevatedButton(
