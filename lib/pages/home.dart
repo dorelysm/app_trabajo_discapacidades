@@ -6,7 +6,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xffEEF8FB),
+        backgroundColor: const Color(0xffEEF8FB),
         body: ListView(children: <Widget>[
           const Text(
             'Home',
