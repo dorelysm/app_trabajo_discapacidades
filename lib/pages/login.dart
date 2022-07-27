@@ -8,10 +8,12 @@ Future<http.Response> getUsuarios() async {
   final response = await http.get(Uri.parse(
       'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users/13'));
   if (response.statusCode == 200) {
-    // print(response.body);
+    print(response.body);
     // example@google.com
     var userEmail = json.decode(response.body)['data']['email'];
     var userPass = json.decode(response.body)['data']['password'];
+    print(userEmail);
+    print(userPass);
     return response;
   } else {
     throw Exception('Failed to load user');
@@ -88,9 +90,8 @@ class _LoginPageState extends State<LoginPage> {
     String pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regExp = RegExp(pattern);
-    Map<String, dynamic> jsonData =
-        json.decode(getUsuarios()) as Map<String, dynamic>;
-    var username = json.decode(getUsuarios())['data']['email'];
+    print(getUsuarios());
+    // var username = json.decode(getUsuarios())['data']['email'];
     if (value == null || value.isEmpty) {
       return "Ingrese el usuario";
     } else if (!regExp.hasMatch(value)) {
@@ -150,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                 );
 
                 // print(getUsuarios(usuarioTextController.text));
-                // print(getUsuarios());
+                print(getUsuarios());
               }
             },
             child: const Text("Iniciar sesión")),
