@@ -38,6 +38,28 @@ class _LoginPageState extends State<LoginPage> {
       child: Card(child: ListTile(leading: Icon(icon), title: item)),
     );
   }
+
+
+  String? validarUsuario(value){
+    String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regExp = RegExp(pattern);
+    if (value == null || value.isEmpty) {
+      return "Ingrese el usuario";
+    } else if (!regExp.hasMatch(value)) {
+      return "Ingrese un usuario válido";
+    } else {
+      return null;
+    }
+  }
+
+  String? validarContrasena(value) {
+    if (value == null || value.isEmpty) {
+      return "Ingrese la contraseña";
+    } else {
+      return null;
+    }
+  }
+  
   
   Widget formularioLogin() {
     return Column(
@@ -59,21 +81,30 @@ class _LoginPageState extends State<LoginPage> {
               labelText: 'Usuario',
               border: OutlineInputBorder(),
             ),
+            validator: validarUsuario,
+            
           )
           ),
         formItemsDesign(
           Icons.password,
           TextFormField(
-            controller: usuarioTextController,
+            controller: contrasenaTextController,
             obscureText: true,
             decoration: const InputDecoration(
               labelText: 'Contraseña',
               border: OutlineInputBorder(),
             ),
+            validator: validarContrasena,
           )
           ),
 
-        const ElevatedButton(onPressed: null, child: Text("Iniciar sesión")),
+        ElevatedButton(onPressed: () {
+          if (keyForm.currentState!.validate()) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Processing Data')),
+            );
+          }
+        }, child: const Text("Iniciar sesión")),
 
         const ElevatedButton(onPressed: null, child: Text("Inicia sesión con Google")),
 
