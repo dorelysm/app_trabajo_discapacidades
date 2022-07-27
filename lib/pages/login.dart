@@ -105,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
               const SnackBar(content: Text('Processing Data')),
             );
 
-            print(getUsuarios(usuarioTextController.text));
+            //print(getUsuarios(usuarioTextController.text));
           }
         }, child: const Text("Iniciar sesión")),
 
