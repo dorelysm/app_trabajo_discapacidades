@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabajo_discapacidades/main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -103,6 +104,8 @@ class _LoginPageState extends State<LoginPage> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Processing Data')),
             );
+
+            print(getUsuarios(usuarioTextController.text));
           }
         }, child: const Text("Iniciar sesión")),
 

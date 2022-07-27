@@ -33,9 +33,15 @@ class MyApp extends StatelessWidget {
         });
   }
 }
-
+/*
 void peticion(List<String> arguments) {
   final url = Uri.parse('https://jsonplaceholder.typicode.com/albums/1');
   http.get(url).then((res) {});
   print(url);
+}
+*/
+
+Future<http.Response> getUsuarios() {
+  final url = Uri.parse('https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users');
+  return http.get(url);
 }
