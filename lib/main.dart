@@ -1,4 +1,3 @@
-//import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:trabajo_discapacidades/pages/consultas.dart';
 import 'package:trabajo_discapacidades/pages/home.dart';
@@ -6,7 +5,6 @@ import 'package:trabajo_discapacidades/pages/login.dart';
 import 'package:trabajo_discapacidades/pages/registro.dart';
 import 'package:trabajo_discapacidades/pages/registro_nat.dart';
 import 'package:trabajo_discapacidades/pages/registro_opc.dart';
-import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -32,16 +30,4 @@ class MyApp extends StatelessWidget {
           "/consultas": (BuildContext context) => const ConsultasPage(),
         });
   }
-}
-/*
-void peticion(List<String> arguments) {
-  final url = Uri.parse('https://jsonplaceholder.typicode.com/albums/1');
-  http.get(url).then((res) {});
-  print(url);
-}
-*/
-
-Future<http.Response> getUsuarios() {
-  final url = Uri.parse('https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users');
-  return http.get(url);
 }
