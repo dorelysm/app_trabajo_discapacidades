@@ -230,6 +230,30 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
           null,
           SelectFormField(
             type: SelectFormFieldType.dropdown,
+            //initialValue: 'hombre',
+            labelText: 'Pais',
+            items: _paises,
+            onChanged: (val) => print(val),
+            onSaved: (val) => print(val),
+          )
+        ),
+
+        formItemsDesign(
+          null,
+          SelectFormField(
+            type: SelectFormFieldType.dropdown,
+            //initialValue: 'hombre',
+            labelText: 'Ciudad',
+            items: _ciudades,
+            onChanged: (val) => print(val),
+            onSaved: (val) => print(val),
+          )
+        ),
+
+        formItemsDesign(
+          null,
+          SelectFormField(
+            type: SelectFormFieldType.dropdown,
             initialValue: 'hombre',
             labelText: 'Género',
             items: _generos,
@@ -237,8 +261,6 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
             onSaved: (val) => print(val),
           )
         ),
-
-        //Pais
 
         //Ciudad
 
