@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         title: 'Búsqueda de empleo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: const Color(0xEEF8FB),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               primary: const Color(0xff0096C7),
@@ -26,9 +27,13 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'Rosario',
                 fontSize: 25,
               ),
-              padding: const EdgeInsets.all(30)
-              ),
+              padding: const EdgeInsets.all(30),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(30))
+              )
+              ), 
           ),
+          
         ),
         //home: const MyHomePage(),
         routes: {

@@ -12,18 +12,27 @@ class RegistroPage extends StatelessWidget {
         
       ),
       body: ListView(children: <Widget>[
-        const Text(
-          'Registro',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontFamily: 'Rosario',
-            fontWeight: FontWeight.bold,
-            fontSize: 40),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 50),
+          child: Text(
+            'REGISTRO',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Rosario',
+              fontWeight: FontWeight.bold,
+              fontSize: 40),
+            ),
+        ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+            child: ElevatedButton(onPressed: () {
+              _showRegistroOpc(context);
+            }, child: const Text('Busco empleo')),
           ),
-          ElevatedButton(onPressed: () {
-            _showRegistroOpc(context);
-          }, child: const Text('Busco empleo')),
-          const ElevatedButton(onPressed: null, child: Text('Quiero publicar un empleo'))
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+            child: ElevatedButton(onPressed: null, child: Text('Quiero publicar un empleo')),
+          )
       ]),
     );
   }

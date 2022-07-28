@@ -21,7 +21,6 @@ class _MyHomePageState extends State<MyHomePage> {
       );
       */
     return Scaffold(
-        backgroundColor: const Color(0xEEF8FB),
         body: ListView(children: <Widget>[
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 50),
@@ -36,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           // Boton de Login
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
                 onPressed: () {
                   _showLogin(context);
@@ -45,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           //Boton de registro
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
               //style: style,
                 onPressed: () {
@@ -55,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           //Boton consultas
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
                 //style: style,
                 onPressed: () {

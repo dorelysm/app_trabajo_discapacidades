@@ -11,19 +11,31 @@ class RegistroOpcPage extends StatelessWidget {
         backgroundColor: const Color(0xff0096C7),
       ),
       body: ListView(children: <Widget>[
-        const Text(
-          'Registro',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontFamily: 'Rosario', fontWeight: FontWeight.bold, fontSize: 40),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 50),
+          child: Text(
+            'REGISTRO',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontFamily: 'Rosario', fontWeight: FontWeight.bold, fontSize: 40),
+          ),
         ),
-        ElevatedButton(
-            onPressed: () {
-              _showRegistroNat(context);
-            },
-            child: const Text("Correo electrónico")),
-        const ElevatedButton(onPressed: null, child: Text("Google")),
-        const ElevatedButton(onPressed: null, child: Text("Facebook")),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          child: ElevatedButton(
+              onPressed: () {
+                _showRegistroNat(context);
+              },
+              child: const Text("Correo electrónico")),
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          child: ElevatedButton(onPressed: null, child: Text("Google")),
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          child: ElevatedButton(onPressed: null, child: Text("Facebook")),
+        ),
       ]),
     );
   }

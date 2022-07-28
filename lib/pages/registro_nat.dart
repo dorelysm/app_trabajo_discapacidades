@@ -313,13 +313,16 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
           )),
 
 
-        ElevatedButton(onPressed: () {
-          if (keyForm.currentState!.validate()) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Processing Data')),
-            );
-          }
-        }, child: const Text('Guardar'))
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          child: ElevatedButton(onPressed: () {
+            if (keyForm.currentState!.validate()) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Processing Data')),
+              );
+            }
+          }, child: const Text('Guardar')),
+        )
       ],
     );
   }
