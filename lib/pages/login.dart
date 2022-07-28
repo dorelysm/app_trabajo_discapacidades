@@ -160,10 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                 print(getUsuarios());
               }
             },
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 80),
-              child: Text("Iniciar sesión"),
-            )
+            child: const Text("Iniciar sesión")
             ),
             
         ),

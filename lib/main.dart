@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         title: 'Búsqueda de empleo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: const Color(0xEEF8FB),
+          scaffoldBackgroundColor: const Color(0xffEEF8FB),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               primary: const Color(0xff0096C7),
