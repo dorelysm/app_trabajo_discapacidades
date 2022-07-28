@@ -28,13 +28,18 @@ class RegistroOpcPage extends StatelessWidget {
               },
               child: const Text("Correo electrónico")),
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 50, horizontal: 100),
-          child: ElevatedButton(onPressed: null, child: Text("Google")),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          child: ElevatedButton(onPressed: () {
+            _showRegistroOpc(context);
+          },
+          child: const Text("Google")),
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 50, horizontal: 100),
-          child: ElevatedButton(onPressed: null, child: Text("Facebook")),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          child: ElevatedButton(onPressed: () {
+            _showRegistroOpc(context);
+          }, child: const Text("Facebook")),
         ),
       ]),
     );
@@ -42,5 +47,9 @@ class RegistroOpcPage extends StatelessWidget {
 
   void _showRegistroNat(BuildContext context) {
     Navigator.of(context).pushNamed("/registro_nat");
+  }
+
+  void _showRegistroOpc(BuildContext context) {
+    Navigator.of(context).pushNamed("/registro_opc");
   }
 }

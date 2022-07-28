@@ -206,6 +206,15 @@ class _LoginPageState extends State<LoginPage> {
         TextButton(onPressed: () {
           _showRegistro(context);
         },
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all(Colors.black),
+          textStyle: MaterialStateProperty.all(
+            const TextStyle(
+              fontSize: 20,
+              fontFamily: 'Rosario',
+              )
+          )
+        ),
         child: const Text("¿Desea registrarse?"))
       ],
     );

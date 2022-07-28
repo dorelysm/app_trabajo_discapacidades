@@ -29,14 +29,21 @@ class RegistroPage extends StatelessWidget {
               _showRegistroOpc(context);
             }, child: const Text('Busco empleo')),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 50, horizontal: 100),
-            child: ElevatedButton(onPressed: null, child: Text('Quiero publicar un empleo')),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+            child: ElevatedButton(onPressed: () {
+              _showRegistro(context);
+            }, child: const Text('Quiero publicar un empleo')),
           )
       ]),
     );
   }
   
+    //Métodos de navegador
+  void _showRegistro(BuildContext context) {
+    Navigator.of(context).pushNamed("/registro");
+  }
+
   void _showRegistroOpc(BuildContext context) {
     Navigator.of(context).pushNamed("/registro_opc");
   }

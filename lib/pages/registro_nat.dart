@@ -57,8 +57,14 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
     {'value': 'multiple',
     'label': 'Múltiple'},
     ];
-  final List<Map<String, dynamic>> _paises = [];
-  final List<Map<String, dynamic>> _ciudades = [];
+  final List<Map<String, dynamic>> _paises = [
+    {'value': 'colombia',
+    'label': 'Colombia'},
+  ];
+  final List<Map<String, dynamic>> _ciudades = [
+    {'value': 'barranquilla',
+    'label': 'Barranquilla'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +186,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
           )),
 
         formItemsDesign(
-          null,
+          Icons.badge,
           SelectFormField(
             type: SelectFormFieldType.dropdown,
             initialValue: 'cc',
@@ -203,7 +209,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
           )),
 
         formItemsDesign(
-          null,
+          Icons.mail,
           TextFormField(
             controller: correoTextController,
             decoration: const InputDecoration(
@@ -214,7 +220,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
           )),
 
         formItemsDesign(
-          null,
+          Icons.call,
           TextFormField(
             controller: celularTextController,
             decoration: const InputDecoration(
@@ -230,7 +236,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
           null,
           SelectFormField(
             type: SelectFormFieldType.dropdown,
-            //initialValue: 'hombre',
+            initialValue: 'colombia',
             labelText: 'Pais',
             items: _paises,
             onChanged: (val) => print(val),
@@ -239,10 +245,10 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
         ),
 
         formItemsDesign(
-          null,
+          Icons.location_city,
           SelectFormField(
             type: SelectFormFieldType.dropdown,
-            //initialValue: 'hombre',
+            initialValue: 'barranquilla',
             labelText: 'Ciudad',
             items: _ciudades,
             onChanged: (val) => print(val),
@@ -289,7 +295,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
         ),
 
         formItemsDesign(
-          null,
+          Icons.password,
           TextFormField(
             controller: contrasenaTextController,
             obscureText: true,
@@ -301,7 +307,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
           )),
 
         formItemsDesign(
-          null,
+          Icons.password,
           TextFormField(
             controller: confirmarContrasenaTextController,
             obscureText: true,
@@ -315,16 +321,22 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
 
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
-          child: ElevatedButton(onPressed: () {
+          child: ElevatedButton.icon(onPressed: () {
             if (keyForm.currentState!.validate()) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Processing Data')),
               );
             }
-          }, child: const Text('Guardar')),
+          },
+          icon: const Icon(Icons.save),
+          label: const Text('Guardar')),
         )
       ],
     );
+  }
+
+  void _showRegistroNat(BuildContext context) {
+    Navigator.of(context).pushNamed("/registro_nat");
   }
 }
 
