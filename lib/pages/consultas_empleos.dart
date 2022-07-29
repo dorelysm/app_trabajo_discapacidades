@@ -15,6 +15,12 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
     'Enfermero',
     'Periodista',
     'Diseñador',
+    'Médico',
+    'Programador',
+    'Analista',
+    'Secretario',
+    'Contador',
+    'Gerente',
   ];
 
   @override
@@ -49,11 +55,16 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
         ),
         ListView.builder(
           itemBuilder: (BuildContext, index){
-            return Card(
-              child: ListTile(
-                leading: const CircleAvatar(),
-                title: Text(_DatosPrueba[index]),
-                subtitle: const Text("This is subtitle"),
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 50),
+              child: Card(
+                elevation: 10,
+                color: const Color(0xff0096C7),
+                child: ListTile(
+                  leading: const CircleAvatar(),
+                  title: Text(_DatosPrueba[index]),
+                  subtitle: const Text("This is subtitle"),
+                ),
               ),
             );
           },
