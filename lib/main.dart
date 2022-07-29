@@ -4,6 +4,7 @@ import 'package:trabajo_discapacidades/pages/home.dart';
 import 'package:trabajo_discapacidades/pages/login.dart';
 import 'package:trabajo_discapacidades/pages/registro.dart';
 import 'package:trabajo_discapacidades/pages/registro_nat.dart';
+import 'package:trabajo_discapacidades/pages/registro_emp.dart';
 import 'package:trabajo_discapacidades/pages/registro_opc.dart';
 import 'package:trabajo_discapacidades/pages/consultas_empleos.dart';
 import 'package:trabajo_discapacidades/pages/consultas_empresas.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
           "/registro": (BuildContext context) => const RegistroPage(),
           "/registro_opc": (BuildContext context) => const RegistroOpcPage(),
           "/registro_nat": (BuildContext context) => const RegistroNatPage(),
+          "/registro_emp": (BuildContext context) => const RegistroEmpPage(),
           "/login": (BuildContext context) => const LoginPage(),
           "/consultas": (BuildContext context) => const ConsultasPage(),
           "/consultas_empleos": (BuildContext context) => const ConsultasEmpleosPage(),

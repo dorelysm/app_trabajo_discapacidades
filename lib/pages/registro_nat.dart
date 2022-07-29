@@ -19,8 +19,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   TextEditingController celularTextController = TextEditingController();
   TextEditingController correoTextController = TextEditingController();
   TextEditingController contrasenaTextController = TextEditingController();
-  TextEditingController confirmarContrasenaTextController =
-      TextEditingController();
+  TextEditingController confirmarContrasenaTextController = TextEditingController();
 
 // Valores de las listas desplegables
   final List<Map<String, dynamic>> _tiposId = [
