@@ -32,7 +32,7 @@ class RegistroPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(onPressed: () {
-              _showRegistro(context);
+              _showRegistroEmp(context);
             }, child: const Text('Quiero publicar un empleo')),
           )
       ]),
@@ -40,8 +40,8 @@ class RegistroPage extends StatelessWidget {
   }
   
     //Métodos de navegador
-  void _showRegistro(BuildContext context) {
-    Navigator.of(context).pushNamed("/registro");
+  void _showRegistroEmp(BuildContext context) {
+    Navigator.of(context).pushNamed("/registro_emp");
   }
 
   void _showRegistroOpc(BuildContext context) {
