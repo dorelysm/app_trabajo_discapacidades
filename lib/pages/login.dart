@@ -1,10 +1,11 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-String url = 'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users?email=';
-String comillas ='"';
+String url =
+    'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users?email=';
+String comillas = '"';
 Future<dynamic> _getUsuario(email) async {
   final respuesta =await http.get(Uri.parse('$url$comillas$email$comillas')); //Petición http a la api
 
@@ -14,8 +15,8 @@ Future<dynamic> _getUsuario(email) async {
   } else {
     print("Error con la respuesta");
   }
-
 }
+
 /*
 Future<http.Response> getUsuarios() async {
   final response = await http.get(Uri.parse(
@@ -111,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
       return "Ingrese el usuario";
     } else if (!regExp.hasMatch(value)) {
       return "Ingrese un usuario válido";
-    } 
+    }
     // else if (value == username) {
     //   return "Ingrese un usuario válido";
     // }
