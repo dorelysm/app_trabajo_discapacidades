@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:google_sign_in/google_sign_in.dart';
 
 String url =
     'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users?email=';
 String comillas = '"';
 Future<dynamic> _getUsuario(email) async {
-  final respuesta =await http.get(Uri.parse('$url$comillas$email$comillas')); //Petición http a la api
+  final respuesta = await http
+      .get(Uri.parse('$url$comillas$email$comillas')); //Petición http a la api
 
-  if (respuesta.statusCode == 200){
+  if (respuesta.statusCode == 200) {
     print(jsonDecode(respuesta.body)); //Muestra información del usuario
     return jsonDecode(respuesta.body); //Devuelve la información del usuario
   } else {
@@ -174,7 +176,11 @@ class _LoginPageState extends State<LoginPage> {
                   );
                   // print(getUsuarios(usuarioTextController.text));
                   //print(getUsuarios());
-                  _getUsuario(usuarioTextController.text); //Llama al metodo para traer la informacion del usuario
+                  var info = _getUsuario(usuarioTextController
+                      .text); //Llama al metodo para traer la informacion del usuario
+                  print(info);
+                  _getUsuario(usuarioTextController
+                      .text); //Llama al metodo para traer la informacion del usuario
                 }
               },
               child: const Text("Iniciar sesión")),
