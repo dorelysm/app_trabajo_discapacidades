@@ -22,6 +22,11 @@ class _ConsultasEmpresasPageState extends State<ConsultasEmpresasPage> {
     'GG',
   ];
 
+  //Colocar aquí las consultas
+  void _Consultar(){
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +52,20 @@ class _ConsultasEmpresasPageState extends State<ConsultasEmpresasPage> {
                   border:
                       Border.all(width: 1.0, color: const Color(0xFF000000))),
               margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
-              child: const TextField(
+              child: TextField(
                 decoration: InputDecoration(
                     labelText: 'Busca empresas',
                     //border: OutlineInputBorder(),
-                    icon: Icon(Icons.search)),
+                    suffixIcon: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: IconButton(
+                        onPressed: () {
+                          _Consultar();
+                        },
+                        icon: const Icon(Icons.search),
+                      ),
+                    ),
+                    ),
               ),
             ),
             ListView.builder(
@@ -61,11 +75,25 @@ class _ConsultasEmpresasPageState extends State<ConsultasEmpresasPage> {
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 50),
                   child: Card(
                     elevation: 10,
-                    color: const Color(0xff0096C7),
+                    color: const Color(0xff022C64),
                     child: ListTile(
                       leading: const CircleAvatar(),
-                      title: Text(_DatosPrueba[index]),
-                      subtitle: const Text("This is subtitle"),
+                      title: Text(_DatosPrueba[index],
+                        style: const TextStyle(
+                          fontFamily: 'Mulish',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                      subtitle: Text(_DatosPrueba[index],
+                        style: const TextStyle(
+                          fontFamily: 'Mulish',
+                          fontWeight: FontWeight.normal,
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 );

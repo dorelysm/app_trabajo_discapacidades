@@ -22,6 +22,7 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
     'Gerente',
   ];
 
+  //Colocar aquí las consultas
   void _Consultar(){
 
   }
@@ -66,7 +67,8 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
                         },
                         icon: const Icon(Icons.search),
                       ),
-                    ),),
+                    ),
+                    ),
                 ),
               ),
             ),
@@ -77,11 +79,25 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 50),
                   child: Card(
                     elevation: 10,
-                    color: const Color(0xff0096C7),
+                    color: const Color(0xff022C64),
                     child: ListTile(
                       leading: const CircleAvatar(),
-                      title: Text(_DatosPrueba[index]),
-                      subtitle: const Text("This is subtitle"),
+                      title: Text(_DatosPrueba[index],
+                        style: const TextStyle(
+                          fontFamily: 'Mulish',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                      subtitle: Text(_DatosPrueba[index],
+                        style: const TextStyle(
+                          fontFamily: 'Mulish',
+                          fontWeight: FontWeight.normal,
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 );
