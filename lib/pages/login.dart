@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:trabajo_discapacidades/main.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+String url = 'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users?email=';
+String comillas ='"';
+Future<dynamic> _getUsuario(email) async {
+  final respuesta =await http.get(Uri.parse('$url$comillas$email$comillas'));
+
+  if (respuesta.statusCode == 200){
+    print(jsonDecode(respuesta.body));
+    return jsonDecode(respuesta.body);
+  } else {
+    print("Error con la respuesta");
+  }
+
+}
+/*
 Future<http.Response> getUsuarios() async {
   final response = await http.get(Uri.parse(
       'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users/13'));
@@ -19,7 +32,7 @@ Future<http.Response> getUsuarios() async {
     throw Exception('Failed to load user');
   }
 }
-
+*/
 class Usuarios {
   final int id;
   final String name;
@@ -56,13 +69,13 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    futureUsuario = getUsuarios();
+    //futureUsuario = getUsuarios();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffEEF8FB),
+      backgroundColor: const Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Login'),
         backgroundColor: const Color(0xff0096C7),
@@ -92,13 +105,13 @@ class _LoginPageState extends State<LoginPage> {
     String pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regExp = RegExp(pattern);
-    print(getUsuarios());
+    //print(getUsuarios());
     // var username = json.decode(getUsuarios())['data']['email'];
     if (value == null || value.isEmpty) {
       return "Ingrese el usuario";
     } else if (!regExp.hasMatch(value)) {
       return "Ingrese un usuario válido";
-    }
+    } 
     // else if (value == username) {
     //   return "Ingrese un usuario válido";
     // }
@@ -159,7 +172,8 @@ class _LoginPageState extends State<LoginPage> {
                     const SnackBar(content: Text('Processing Data')),
                   );
                   // print(getUsuarios(usuarioTextController.text));
-                  print(getUsuarios());
+                  //print(getUsuarios());
+                  _getUsuario(usuarioTextController.text);
                 }
               },
               child: const Text("Iniciar sesión")),
