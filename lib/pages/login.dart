@@ -100,7 +100,10 @@ class _LoginPageState extends State<LoginPage> {
   formItemsDesign(icon, item) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Card(child: ListTile(leading: Icon(icon), title: item)),
+      child: Card(elevation: 0,
+        color: const Color(0xffEEF8FB),
+        child: ListTile(leading: Icon(icon), title: item),
+      ),
     );
   }
 
@@ -168,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
               validator: validarContrasena,
             )),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: ElevatedButton(
               onPressed: () {
                 if (keyForm.currentState!.validate()) {
@@ -184,10 +187,13 @@ class _LoginPageState extends State<LoginPage> {
                       .text); //Llama al metodo para traer la informacion del usuario
                 }
               },
-              child: const Text("Iniciar sesión")),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal:50),
+                child: Text("Iniciar sesión"),
+              )),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: ElevatedButton(
               onPressed: () {
                 _showLogin(context);
@@ -202,7 +208,7 @@ class _LoginPageState extends State<LoginPage> {
               child: const Text("Inicia sesión con Google")),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: ElevatedButton(
               onPressed: () {
                 _showLogin(context);
