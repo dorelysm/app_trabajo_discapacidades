@@ -61,6 +61,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Mis datos personales'),
         backgroundColor: const Color(0xff0096C7),

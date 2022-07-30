@@ -21,6 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
       );
       */
     return Scaffold(
+        backgroundColor: Color(0xffEEF8FB),
         body: ListView(children: <Widget>[
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 50),
@@ -46,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
-              //style: style,
+                //style: style,
                 onPressed: () {
                   _showRegistro(context);
                 },

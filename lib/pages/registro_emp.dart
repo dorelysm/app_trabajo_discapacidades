@@ -9,18 +9,17 @@ class RegistroEmpPage extends StatefulWidget {
 }
 
 class _RegistroEmpPageState extends State<RegistroEmpPage> {
-
   GlobalKey<FormState> keyForm = GlobalKey();
 
-    TextEditingController nombreTextController = TextEditingController();
-    TextEditingController razonSocialTextController = TextEditingController();
-    TextEditingController nitTextController = TextEditingController();
-    TextEditingController emailTextController = TextEditingController();
-    TextEditingController celularTextController = TextEditingController();
-    TextEditingController descripcionTextController = TextEditingController();
-    TextEditingController contrasenaTextController = TextEditingController();
-    TextEditingController confirmarContrasenaTextController = TextEditingController();
-
+  TextEditingController nombreTextController = TextEditingController();
+  TextEditingController razonSocialTextController = TextEditingController();
+  TextEditingController nitTextController = TextEditingController();
+  TextEditingController emailTextController = TextEditingController();
+  TextEditingController celularTextController = TextEditingController();
+  TextEditingController descripcionTextController = TextEditingController();
+  TextEditingController contrasenaTextController = TextEditingController();
+  TextEditingController confirmarContrasenaTextController =
+      TextEditingController();
 
   // Valores de las listas desplegables
   final List<Map<String, dynamic>> _sectores = [
@@ -40,6 +39,7 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Datos de mi empresa'),
         backgroundColor: const Color(0xff0096C7),
@@ -89,7 +89,7 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
       return "Campo obligatorio";
     } else if (!regExp.hasMatch(value)) {
       return "Debe contener solo números";
-    } else if (value.length < 6){
+    } else if (value.length < 6) {
       return "Ingrese un Nit válido";
     } else {
       return null;
@@ -189,11 +189,11 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
           padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 30),
           child: SelectFormField(
             type: SelectFormFieldType.dropdown,
-                initialValue: 'industrial',
-                labelText: 'Sector',
-                items: _sectores,
-                onChanged: (val) => print(val),
-                onSaved: (val) => print(val),
+            initialValue: 'industrial',
+            labelText: 'Sector',
+            items: _sectores,
+            onChanged: (val) => print(val),
+            onSaved: (val) => print(val),
           ),
         ),
         Padding(
@@ -258,18 +258,17 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
           child: ElevatedButton.icon(
-            onPressed: () {
-              if (keyForm.currentState!.validate()) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Processing Data')),
-                );
-              }
-            },
-            icon: const Icon(Icons.save),
-            label: const Text('Guardar')),
+              onPressed: () {
+                if (keyForm.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Processing Data')),
+                  );
+                }
+              },
+              icon: const Icon(Icons.save),
+              label: const Text('Guardar')),
         ),
       ],
     );
   }
-
 }

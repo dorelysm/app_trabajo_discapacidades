@@ -6,6 +6,7 @@ class RegistroOpcPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Opciones de registro'),
         backgroundColor: const Color(0xff0096C7),
@@ -17,7 +18,9 @@ class RegistroOpcPage extends StatelessWidget {
             'REGISTRO',
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontFamily: 'Rosario', fontWeight: FontWeight.bold, fontSize: 40),
+                fontFamily: 'Rosario',
+                fontWeight: FontWeight.bold,
+                fontSize: 40),
           ),
         ),
         Padding(
@@ -30,16 +33,19 @@ class RegistroOpcPage extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
-          child: ElevatedButton(onPressed: () {
-            _showRegistroOpc(context);
-          },
-          child: const Text("Google")),
+          child: ElevatedButton(
+              onPressed: () {
+                _showRegistroOpc(context);
+              },
+              child: const Text("Google")),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
-          child: ElevatedButton(onPressed: () {
-            _showRegistroOpc(context);
-          }, child: const Text("Facebook")),
+          child: ElevatedButton(
+              onPressed: () {
+                _showRegistroOpc(context);
+              },
+              child: const Text("Facebook")),
         ),
       ]),
     );

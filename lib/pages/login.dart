@@ -62,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Login'),
         backgroundColor: const Color(0xff0096C7),
@@ -157,7 +158,6 @@ class _LoginPageState extends State<LoginPage> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Processing Data')),
                   );
-
                   // print(getUsuarios(usuarioTextController.text));
                   print(getUsuarios());
                 }

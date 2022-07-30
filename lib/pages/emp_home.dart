@@ -21,6 +21,7 @@ class _EmpHomePageState extends State<EmpHomePage> {
       );
       */
     return Scaffold(
+        backgroundColor: Color(0xffEEF8FB),
         body: ListView(children: <Widget>[
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 50),
@@ -33,7 +34,6 @@ class _EmpHomePageState extends State<EmpHomePage> {
                   fontSize: 30),
             ),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
@@ -42,17 +42,15 @@ class _EmpHomePageState extends State<EmpHomePage> {
                 },
                 child: const Text('Actualizar datos de la empresa')),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
-              //style: style,
+                //style: style,
                 onPressed: () {
                   //_showRegistro(context);
                 },
                 child: const Text('Ver vacantes')),
           ),
-
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 50),
             child: Text(
@@ -64,7 +62,6 @@ class _EmpHomePageState extends State<EmpHomePage> {
                   fontSize: 30),
             ),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(

@@ -21,6 +21,7 @@ class _RecHomePageState extends State<RecHomePage> {
       );
       */
     return Scaffold(
+        backgroundColor: Color(0xffEEF8FB),
         body: ListView(children: <Widget>[
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 50),
@@ -33,7 +34,6 @@ class _RecHomePageState extends State<RecHomePage> {
                   fontSize: 30),
             ),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
@@ -42,16 +42,15 @@ class _RecHomePageState extends State<RecHomePage> {
                 },
                 child: const Text('Nueva oferta laboral')),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
-              //style: style,
+                //style: style,
                 onPressed: () {
                   //_showRegistro(context);
                 },
                 child: const Text('Modificar oferta laboral')),
-          ),          
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
@@ -61,7 +60,6 @@ class _RecHomePageState extends State<RecHomePage> {
                 },
                 child: const Text('Mis ofertas laborales')),
           ),
-          
         ]));
   }
 }
