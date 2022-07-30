@@ -3,14 +3,13 @@ import 'package:select_form_field/select_form_field.dart';
 
 class RegistroNatPage extends StatefulWidget {
   const RegistroNatPage({Key? key}) : super(key: key);
-
   @override
   State<RegistroNatPage> createState() => _RegistroNatPageState();
 }
 
 class _RegistroNatPageState extends State<RegistroNatPage> {
-  GlobalKey<FormState> keyForm = GlobalKey(); //Llave del formulario
-
+  //Llave del formulario
+  GlobalKey<FormState> keyForm = GlobalKey();
   //Controladores
   TextEditingController nombreTextController = TextEditingController();
   TextEditingController apellidoTextController = TextEditingController();
@@ -19,7 +18,8 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   TextEditingController celularTextController = TextEditingController();
   TextEditingController correoTextController = TextEditingController();
   TextEditingController contrasenaTextController = TextEditingController();
-  TextEditingController confirmarContrasenaTextController = TextEditingController();
+  TextEditingController confirmarContrasenaTextController =
+      TextEditingController();
 
 // Valores de las listas desplegables
   final List<Map<String, dynamic>> _tiposId = [
@@ -48,6 +48,15 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   final List<Map<String, dynamic>> _ciudades = [
     {'value': 'barranquilla', 'label': 'Barranquilla'},
   ];
+
+  final dateController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed
+    dateController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -147,8 +156,9 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
                 'https://cdn.pixabay.com/photo/2016/02/11/16/59/dog-1194083_1280.jpg')),
         */
 
+        //Nombre
         formItemsDesign(
-            null,
+            Icons.people,
             TextFormField(
               controller: nombreTextController,
               decoration: const InputDecoration(
@@ -158,8 +168,9 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               validator: validarEntradaTexto,
             )),
 
+        //Apellido
         formItemsDesign(
-            null,
+            Icons.people,
             TextFormField(
               controller: apellidoTextController,
               decoration: const InputDecoration(
@@ -169,6 +180,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               validator: validarEntradaTexto,
             )),
 
+        //Tipo de identificación
         formItemsDesign(
             Icons.badge,
             SelectFormField(
@@ -180,8 +192,9 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               onSaved: (val) => print(val),
             )),
 
+        //ID
         formItemsDesign(
-            null,
+            Icons.numbers,
             TextFormField(
               controller: numIdTextController,
               decoration: const InputDecoration(
@@ -191,6 +204,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               validator: validarEntradaNum,
             )),
 
+        //Correo electronico
         formItemsDesign(
             Icons.mail,
             TextFormField(
@@ -202,6 +216,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               validator: validarCorreo,
             )),
 
+        // # de celular
         formItemsDesign(
             Icons.call,
             TextFormField(
@@ -214,9 +229,25 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
             )),
 
         //fecha de nacimiento
-
         formItemsDesign(
-            null,
+          Icons.calendar_month,
+          TextFormField(
+              readOnly: true,
+              controller: dateController,
+              decoration: InputDecoration(hintText: 'Fecha de nacimiento'),
+              onTap: () async {
+                var date = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1900),
+                    lastDate: DateTime(2100));
+                dateController.text = date.toString().substring(0, 10);
+              }),
+        ),
+
+        //País
+        formItemsDesign(
+            Icons.add_location_sharp,
             SelectFormField(
               type: SelectFormFieldType.dropdown,
               initialValue: 'colombia',
@@ -226,6 +257,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               onSaved: (val) => print(val),
             )),
 
+        //City
         formItemsDesign(
             Icons.location_city,
             SelectFormField(
@@ -237,8 +269,9 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               onSaved: (val) => print(val),
             )),
 
+        //Genero
         formItemsDesign(
-            null,
+            Icons.supervised_user_circle_sharp,
             SelectFormField(
               type: SelectFormFieldType.dropdown,
               initialValue: 'hombre',
@@ -248,10 +281,9 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               onSaved: (val) => print(val),
             )),
 
-        //Ciudad
-
+        //Profesion
         formItemsDesign(
-            null,
+            Icons.badge,
             TextFormField(
               controller: profesionTextController,
               decoration: const InputDecoration(
@@ -263,16 +295,17 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
 
         //Tipo de discapacidad
         formItemsDesign(
-            null,
+            Icons.settings_accessibility_outlined,
             SelectFormField(
               type: SelectFormFieldType.dropdown,
               initialValue: 'fisica',
-              labelText: 'Física',
+              labelText: 'Tipo de discapacidad',
               items: _discapacidades,
               onChanged: (val) => print(val),
               onSaved: (val) => print(val),
             )),
 
+        //Constraseña
         formItemsDesign(
             Icons.password,
             TextFormField(
@@ -285,6 +318,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
               validator: validarContrasena,
             )),
 
+        //Validar contraseña
         formItemsDesign(
             Icons.password,
             TextFormField(
@@ -337,4 +371,21 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   TextEditingController contrasenaTextController = TextEditingController();
   TextEditingController confirmarContrasenaTextController =
       TextEditingController(); */
+  void _showDatePicker() {
+    context:
+    context;
+    initialDate:
+    DateTime.now();
+    firstDate:
+    DateTime(1900);
+    lastDate:
+    DateTime(2100);
+  }
 }
+
+/*@override
+void dispose() {
+  super.dispose();
+}*/
+
+final dateController = TextEditingController();
