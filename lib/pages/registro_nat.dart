@@ -61,6 +61,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Color Scaffold
       backgroundColor: Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Mis datos personales'),
@@ -82,7 +83,12 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   formItemsDesign(icon, item) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 7),
-      child: Card(child: ListTile(leading: Icon(icon), title: item)),
+      /*Agregarle el color de fondo (Scaffol) y elevation = 0*/
+      child: Card(
+        child: ListTile(leading: Icon(icon), title: item),
+        elevation: 0,
+        color: const Color(0xffEEF8FB),
+      ),
     );
   }
 
