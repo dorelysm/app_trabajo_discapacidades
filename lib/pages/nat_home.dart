@@ -21,6 +21,7 @@ class _NatHomePageState extends State<NatHomePage> {
       );
       */
     return Scaffold(
+        backgroundColor: Color(0xffEEF8FB),
         body: ListView(children: <Widget>[
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 50),
@@ -33,7 +34,6 @@ class _NatHomePageState extends State<NatHomePage> {
                   fontSize: 50),
             ),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
@@ -42,17 +42,15 @@ class _NatHomePageState extends State<NatHomePage> {
                 },
                 child: const Text('Consultas')),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(
-              //style: style,
+                //style: style,
                 onPressed: () {
                   _showRegistro(context);
                 },
                 child: const Text('Mi perfil')),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
             child: ElevatedButton(

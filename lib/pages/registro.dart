@@ -6,10 +6,10 @@ class RegistroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Registro'),
         backgroundColor: const Color(0xff0096C7),
-        
       ),
       body: ListView(children: <Widget>[
         const Padding(
@@ -18,28 +18,32 @@ class RegistroPage extends StatelessWidget {
             'REGISTRO',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'Rosario',
-              fontWeight: FontWeight.bold,
-              fontSize: 40),
-            ),
-        ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
-            child: ElevatedButton(onPressed: () {
-              _showRegistroOpc(context);
-            }, child: const Text('Busco empleo')),
+                fontFamily: 'Rosario',
+                fontWeight: FontWeight.bold,
+                fontSize: 40),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
-            child: ElevatedButton(onPressed: () {
-              _showRegistroEmp(context);
-            }, child: const Text('Quiero publicar un empleo')),
-          )
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          child: ElevatedButton(
+              onPressed: () {
+                _showRegistroOpc(context);
+              },
+              child: const Text('Busco empleo')),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          child: ElevatedButton(
+              onPressed: () {
+                _showRegistroEmp(context);
+              },
+              child: const Text('Quiero publicar un empleo')),
+        )
       ]),
     );
   }
-  
-    //Métodos de navegador
+
+  //Métodos de navegador
   void _showRegistroEmp(BuildContext context) {
     Navigator.of(context).pushNamed("/registro_emp");
   }
