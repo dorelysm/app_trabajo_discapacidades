@@ -239,4 +239,16 @@ class _LoginPageState extends State<LoginPage> {
   void _showLogin(BuildContext context) {
     Navigator.of(context).pushNamed("/login");
   }
+
+  void _showHomeNat(BuildContext context) {
+    Navigator.of(context).pushNamed("/nat_hom");
+  }
+
+  void _showHomeEmp(BuildContext context) {
+    Navigator.of(context).pushNamed("/emp_hom");
+  }
+
+  void _showHomeRec(BuildContext context) {
+    Navigator.of(context).pushNamed("/rec_hom");
+  }
 }

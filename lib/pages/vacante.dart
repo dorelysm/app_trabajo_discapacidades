@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class vacantePage extends StatefulWidget {
-  vacantePage({Key? key}) : super(key: key);
+  const vacantePage({Key? key}) : super(key: key);
 
   @override
   State<vacantePage> createState() => _vacantePageState();

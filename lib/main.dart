@@ -8,6 +8,11 @@ import 'package:trabajo_discapacidades/pages/registro_emp.dart';
 import 'package:trabajo_discapacidades/pages/registro_opc.dart';
 import 'package:trabajo_discapacidades/pages/consultas_empleos.dart';
 import 'package:trabajo_discapacidades/pages/consultas_empresas.dart';
+import 'package:trabajo_discapacidades/pages/emp_home.dart';
+import 'package:trabajo_discapacidades/pages/nat_home.dart';
+import 'package:trabajo_discapacidades/pages/nueva_vacante.dart';
+import 'package:trabajo_discapacidades/pages/rec_home.dart';
+import 'package:trabajo_discapacidades/pages/vacante.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,6 +47,9 @@ class MyApp extends StatelessWidget {
         //Rutas para la navegación entre páginas
         routes: {
           "/": (BuildContext context) => const MyHomePage(),
+          "/emp_hom": (BuildContext context) => const EmpHomePage(),
+          "/nat_hom": (BuildContext context) => const NatHomePage(),
+          "/rec_hom": (BuildContext context) => const RecHomePage(),
           "/registro": (BuildContext context) => const RegistroPage(),
           "/registro_opc": (BuildContext context) => const RegistroOpcPage(),
           "/registro_nat": (BuildContext context) => const RegistroNatPage(),
@@ -50,6 +58,8 @@ class MyApp extends StatelessWidget {
           "/consultas": (BuildContext context) => const ConsultasPage(),
           "/consultas_empleos": (BuildContext context) => const ConsultasEmpleosPage(),
           "/consultas_empresas": (BuildContext context) => const ConsultasEmpresasPage(),
+          "/vacante": (BuildContext context) => const vacantePage(),
+          "/nueva_vacante": (BuildContext context) => const nuevaVacantePage(),
         });
   }
 }
