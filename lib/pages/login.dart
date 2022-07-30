@@ -6,12 +6,16 @@ import 'package:http/http.dart' as http;
 String url =
     'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users?email=';
 String comillas = '"';
-Future<dynamic> _getUsuario(email) async {
+Future<dynamic> _getUsuario(email, contrasena) async {
   final respuesta =await http.get(Uri.parse('$url$comillas$email$comillas')); //Petición http a la api
 
   if (respuesta.statusCode == 200){
-    print(jsonDecode(respuesta.body)); //Muestra información del usuario
+
+    var userPass = json.decode(respuesta.body)['data']['password'];
+    print(userPass);
+    //print(jsonDecode(respuesta.body)); //Muestra información del usuario
     return jsonDecode(respuesta.body); //Devuelve la información del usuario
+    
   } else {
     print("Error con la respuesta");
   }
@@ -174,7 +178,8 @@ class _LoginPageState extends State<LoginPage> {
                   );
                   // print(getUsuarios(usuarioTextController.text));
                   //print(getUsuarios());
-                  _getUsuario(usuarioTextController.text); //Llama al metodo para traer la informacion del usuario
+                  var info =_getUsuario(usuarioTextController.text, contrasenaTextController.text); //Llama al metodo para traer la informacion del usuario
+                  
                 }
               },
               child: const Text("Iniciar sesión")),
