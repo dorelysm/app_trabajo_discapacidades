@@ -89,7 +89,7 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
       return "Campo obligatorio";
     } else if (!regExp.hasMatch(value)) {
       return "Debe contener solo números";
-    } else if (value.length < 6) {
+    } else if (value.length < 9 || value.length > 10) {
       return "Ingrese un Nit válido";
     } else {
       return null;
@@ -112,7 +112,10 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
   String? validarContrasena(value) {
     if (value == null || value.isEmpty) {
       return "Ingrese la contraseña";
-    } else {
+    } else if (value.length < 5){
+      return "La contraseña debe contener por lo menos 5 caracteres";
+    }
+    else {
       return null;
     }
   }

@@ -117,6 +117,20 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
     }
   }
 
+  String? validarCedula(value) {
+    String pattern = r'^[0-9]*$';
+    RegExp regExp = RegExp(pattern);
+    if (value == null || value.isEmpty) {
+      return "Campo obligatorio";
+    } else if (!regExp.hasMatch(value)) {
+      return "Debe contener solo números";
+    } else if (value.length < 6 || value.length > 10) {
+      return "Ingrese una identificación válida";
+    } else {
+      return null;
+    }
+  }
+
   String? validarCorreo(value) {
     String pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -202,7 +216,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
                 labelText: 'Número de identificación',
                 border: OutlineInputBorder(),
               ),
-              validator: validarEntradaNum,
+              validator: validarCedula,
             )),
 
         //Correo electronico

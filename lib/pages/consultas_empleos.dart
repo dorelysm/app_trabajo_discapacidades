@@ -7,6 +7,7 @@ class ConsultasEmpleosPage extends StatefulWidget {
 }
 
 class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
+  // Datos de prueba, reemplazar por los consultados en DB
   final List<String> _DatosPrueba = [
     'Ingeniero',
     'Abogado',
@@ -21,10 +22,14 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
     'Gerente',
   ];
 
+  void _Consultar(){
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xffEEF8FB),
+        backgroundColor: const Color(0xffEEF8FB),
         appBar: AppBar(
           title: const Text('Búsqueda de empleos'),
           backgroundColor: const Color(0xff0096C7),
@@ -44,14 +49,25 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
             ),
             Container(
               decoration: BoxDecoration(
-                  border:
-                      Border.all(width: 1.0, color: const Color(0xFF000000))),
+                border:
+                    Border.all(width: 1.0, color: const Color(0xFF000000))),
               margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
-              child: const TextField(
-                decoration: InputDecoration(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: TextField(
+                  decoration: InputDecoration(
                     labelText: 'Busca ofertas laborales',
                     //border: OutlineInputBorder(),
-                    icon: Icon(Icons.search)),
+                    suffixIcon: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: IconButton(
+                        onPressed: () {
+                          _Consultar();
+                        },
+                        icon: const Icon(Icons.search),
+                      ),
+                    ),),
+                ),
               ),
             ),
             ListView.builder(
