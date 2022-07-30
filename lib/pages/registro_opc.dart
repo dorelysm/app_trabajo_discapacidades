@@ -24,7 +24,7 @@ class RegistroOpcPage extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
           child: ElevatedButton(
               onPressed: () {
                 _showRegistroNat(context);
@@ -32,7 +32,7 @@ class RegistroOpcPage extends StatelessWidget {
               child: const Text("Correo electrónico")),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
           child: ElevatedButton(
               onPressed: () {
                 _showRegistroOpc(context);
@@ -40,7 +40,7 @@ class RegistroOpcPage extends StatelessWidget {
               child: const Text("Google")),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
           child: ElevatedButton(
               onPressed: () {
                 _showRegistroOpc(context);

@@ -24,7 +24,7 @@ class RegistroPage extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
           child: ElevatedButton(
               onPressed: () {
                 _showRegistroOpc(context);
@@ -32,7 +32,7 @@ class RegistroPage extends StatelessWidget {
               child: const Text('Busco empleo')),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
           child: ElevatedButton(
               onPressed: () {
                 _showRegistroEmp(context);

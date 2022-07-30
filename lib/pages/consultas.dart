@@ -30,7 +30,7 @@ class _ConsultasPageState extends State<ConsultasPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
             child: ElevatedButton(
                 onPressed: () {
                   _showConsultasEmpleos(context);
@@ -38,7 +38,7 @@ class _ConsultasPageState extends State<ConsultasPage> {
                 child: const Text("Buscar empleos")),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 100),
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
             child: ElevatedButton(
                 onPressed: () {
                   _showConsultasEmpresas(context);
