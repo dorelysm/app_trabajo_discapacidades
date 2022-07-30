@@ -40,6 +40,7 @@ class _vacantePageState extends State<vacantePage> {
           const Text("Tipo de contrato"),
           Text(contrato)
         ]),
+
       ])
     );
   }
