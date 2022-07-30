@@ -123,11 +123,13 @@ class _LoginPageState extends State<LoginPage> {
             'Login',
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontFamily: 'Rosario', fontWeight: FontWeight.bold, fontSize: 50),
+                fontFamily: 'Rosario',
+                fontWeight: FontWeight.bold,
+                fontSize: 50),
           ),
         ),
         formItemsDesign(
-            Icons.login,
+            Icons.people,
             TextFormField(
               controller: usuarioTextController,
               decoration: const InputDecoration(
@@ -150,69 +152,59 @@ class _LoginPageState extends State<LoginPage> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
           child: ElevatedButton(
-            onPressed: () {
-              if (keyForm.currentState!.validate()) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Processing Data')),
-                );
+              onPressed: () {
+                if (keyForm.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Processing Data')),
+                  );
 
-                // print(getUsuarios(usuarioTextController.text));
-                print(getUsuarios());
-              }
-            },
-            child: const Text("Iniciar sesión")
-            ),
-            
+                  // print(getUsuarios(usuarioTextController.text));
+                  print(getUsuarios());
+                }
+              },
+              child: const Text("Iniciar sesión")),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
           child: ElevatedButton(
-            onPressed: () {
-              _showLogin(context);
-            },
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.white),
-              foregroundColor: MaterialStateProperty.all(Colors.black),
-              side: MaterialStateProperty.all(
-                const BorderSide(
-                  color: Color(0xff022C64),
-                  width: 2,
-                )
-              )
-            ),
-            child: const Text("Inicia sesión con Google")),
+              onPressed: () {
+                _showLogin(context);
+              },
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
+                  side: MaterialStateProperty.all(const BorderSide(
+                    color: Color(0xff022C64),
+                    width: 2,
+                  ))),
+              child: const Text("Inicia sesión con Google")),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
           child: ElevatedButton(
+              onPressed: () {
+                _showLogin(context);
+              },
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
+                  side: MaterialStateProperty.all(const BorderSide(
+                    color: Color(0xff0096C7),
+                    width: 2,
+                  ))),
+              child: const Text("Inicia sesión con Meta")),
+        ),
+        TextButton(
             onPressed: () {
-              _showLogin(context);
+              _showRegistro(context);
             },
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.white),
-              foregroundColor: MaterialStateProperty.all(Colors.black),
-              side: MaterialStateProperty.all(
-                const BorderSide(
-                  color: Color(0xff0096C7),
-                  width: 2,
-                )
-              )
-            ),
-            child: const Text("Inicia sesión con Meta")),
-        ),
-        TextButton(onPressed: () {
-          _showRegistro(context);
-        },
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all(Colors.black),
-          textStyle: MaterialStateProperty.all(
-            const TextStyle(
-              fontSize: 20,
-              fontFamily: 'Rosario',
-              )
-          )
-        ),
-        child: const Text("¿Desea registrarse?"))
+                foregroundColor: MaterialStateProperty.all(Colors.black),
+                textStyle: MaterialStateProperty.all(const TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Rosario',
+                ))),
+            child: const Text("¿Desea registrarse?"))
       ],
     );
   }
