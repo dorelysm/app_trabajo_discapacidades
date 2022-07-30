@@ -83,7 +83,6 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   formItemsDesign(icon, item) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 7),
-      /*Agregarle el color de fondo (Scaffol) y elevation = 0*/
       child: Card(
         child: ListTile(leading: Icon(icon), title: item),
         elevation: 0,
@@ -118,20 +117,6 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
       return "Campo obligatorio";
     } else if (!regExp.hasMatch(value)) {
       return "Debe contener solo números";
-    } else {
-      return null;
-    }
-  }
-
-  String? validarCedula(value) {
-    String pattern = r'^[0-9]*$';
-    RegExp regExp = RegExp(pattern);
-    if (value == null || value.isEmpty) {
-      return "Campo obligatorio";
-    } else if (!regExp.hasMatch(value)) {
-      return "Debe contener solo números";
-    } else if (value.length < 6 || value.length > 10) {
-      return "Ingrese una identificación válida";
     } else {
       return null;
     }
@@ -222,7 +207,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
                 labelText: 'Número de identificación',
                 border: OutlineInputBorder(),
               ),
-              validator: validarCedula,
+              validator: validarEntradaNum,
             )),
 
         //Correo electronico

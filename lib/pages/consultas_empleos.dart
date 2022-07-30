@@ -23,9 +23,7 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
   ];
 
   //Colocar aquí las consultas
-  void _Consultar(){
-
-  }
+  void _Consultar() {}
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +48,8 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
             ),
             Container(
               decoration: BoxDecoration(
-                border:
-                    Border.all(width: 1.0, color: const Color(0xFF000000))),
+                  border:
+                      Border.all(width: 1.0, color: const Color(0xFF000000))),
               margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -68,7 +66,7 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
                         icon: const Icon(Icons.search),
                       ),
                     ),
-                    ),
+                  ),
                 ),
               ),
             ),
@@ -82,7 +80,8 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
                     color: const Color(0xff022C64),
                     child: ListTile(
                       leading: const CircleAvatar(),
-                      title: Text(_DatosPrueba[index],
+                      title: Text(
+                        _DatosPrueba[index],
                         style: const TextStyle(
                           fontFamily: 'Mulish',
                           fontWeight: FontWeight.bold,
@@ -90,7 +89,8 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
                           color: Colors.white,
                         ),
                       ),
-                      subtitle: Text(_DatosPrueba[index],
+                      subtitle: Text(
+                        _DatosPrueba[index],
                         style: const TextStyle(
                           fontFamily: 'Mulish',
                           fontWeight: FontWeight.normal,
