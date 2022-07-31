@@ -57,11 +57,14 @@ class MyApp extends StatelessWidget {
           "/registro_emp": (BuildContext context) => const RegistroEmpPage(),
           "/login": (BuildContext context) => const LoginPage(),
           "/consultas": (BuildContext context) => const ConsultasPage(),
-          "/consultas_empleos": (BuildContext context) => const ConsultasEmpleosPage(),
-          "/consultas_empresas": (BuildContext context) => const ConsultasEmpresasPage(),
+          "/consultas_empleos": (BuildContext context) =>
+              const ConsultasEmpleosPage(),
+          "/consultas_empresas": (BuildContext context) =>
+              const ConsultasEmpresasPage(),
           "/vacante": (BuildContext context) => const vacantePage(),
           "/nueva_vacante": (BuildContext context) => const nuevaVacantePage(),
-          "/nueva_reclutador": (BuildContext context) => const nuevoReclutadorPage(),
+          "/nueva_reclutador": (BuildContext context) =>
+              const nuevoReclutadorPage(),
         });
   }
 }

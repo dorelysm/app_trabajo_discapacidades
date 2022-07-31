@@ -9,17 +9,17 @@ class ConsultasEmpresasPage extends StatefulWidget {
 
 class _ConsultasEmpresasPageState extends State<ConsultasEmpresasPage> {
   final List<String> _DatosPrueba = [
-    'Aerovias del continente americano s a avianca',
-    'Supertiendas y droguerias olimpica olimpica s a',
-    'C i blincaribe internacional colombia ltda',
-    'Cementos argos s a',
+    'Aerovias del continente americano avianca',
+    'Supertiendas y droguerias olimpica olimpica',
+    'Blincaribe internacional colombia ltda',
+    'Cementos argos',
     'Caja de compensacion familiar cajacopi',
-    'Médico',
-    'Programador',
-    'Analista',
-    'Secretario',
-    'Contador',
-    'GG',
+    'Procaps',
+    'Sociedad de acueducto alcantarillado y aseo de barranquilla',
+    'Muebles Jamar',
+    'Promigas',
+    'Litoplas',
+    'Banco serfinanza',
   ];
 
   //Colocar aquí las consultas
