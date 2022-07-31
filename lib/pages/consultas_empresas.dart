@@ -103,6 +103,7 @@ class _ConsultasEmpresasPageState extends State<ConsultasEmpresasPage> {
               },
               itemCount: _DatosPrueba.length,
               shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
               padding: const EdgeInsets.all(5),
               scrollDirection: Axis.vertical,
             )

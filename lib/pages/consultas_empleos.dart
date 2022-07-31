@@ -34,7 +34,10 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
           backgroundColor: const Color(0xff0096C7),
         ),
         body: ListView(
+          shrinkWrap: true,
+          
           children: <Widget>[
+            
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 20),
               child: Text(
@@ -104,10 +107,12 @@ class _ConsultasEmpleosPageState extends State<ConsultasEmpleosPage> {
               },
               itemCount: _DatosPrueba.length,
               shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
               padding: const EdgeInsets.all(5),
               scrollDirection: Axis.vertical,
             )
           ],
-        ));
+        )
+        );
   }
 }
