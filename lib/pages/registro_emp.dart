@@ -1,5 +1,8 @@
+import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:select_form_field/select_form_field.dart';
+import 'package:http/http.dart' as http;
 
 class RegistroEmpPage extends StatefulWidget {
   const RegistroEmpPage({Key? key}) : super(key: key);
@@ -20,6 +23,7 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
   TextEditingController contrasenaTextController = TextEditingController();
   TextEditingController confirmarContrasenaTextController =
       TextEditingController();
+  static final url = 'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users';
 
   // Valores de las listas desplegables
   final List<Map<String, dynamic>> _sectores = [
@@ -36,10 +40,24 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
     {'value': 'barranquilla', 'label': 'Barranquilla'},
   ];
 
+  //Petición http
+  Future createPost(String url, {required Map body}) async {
+    //url = 'https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users';
+    String stringJson = json.encode(body);
+  return http.post(Uri.parse(url), body: stringJson).then((http.Response response) {
+    final int statusCode = response.statusCode;
+
+    if (statusCode < 200 || statusCode > 400) {
+      throw Exception("Error while fetching data");
+    }
+    return Empresa.fromJson(json.decode(response.body));
+  });
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffEEF8FB),
+      backgroundColor: const Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Datos de mi empresa'),
         backgroundColor: const Color(0xff0096C7),
@@ -261,11 +279,16 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
           child: ElevatedButton.icon(
-              onPressed: () {
+              onPressed: () async {
                 if (keyForm.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Processing Data')),
                   );
+                  
+                  Empresa newEmpresa = Empresa(name: nombreTextController.text, email: emailTextController.text, cellphone: celularTextController.text, password: contrasenaTextController.text);
+                  print(newEmpresa.toMap());
+                  Empresa p = await createPost(url,
+                        body: newEmpresa.toMap());
                 }
               },
               icon: const Icon(Icons.save),
@@ -274,4 +297,55 @@ class _RegistroEmpPageState extends State<RegistroEmpPage> {
       ],
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    //futureAlbum = registrarEmpresa();
+  }
+}
+
+
+
+class Empresa {
+  final String name;
+  final String email;
+  final String cellphone;
+  final String type;
+  final String password;
+
+  const Empresa({
+    required this.name,
+    required this.email,
+    required this.cellphone,
+    this.type='empresa',
+    required this.password,
+  });
+
+  factory Empresa.fromJson(Map<String, dynamic> json) {
+    return Empresa(
+      name: json['name'],
+      email: json['email'],
+      cellphone: json['cellphone'],
+      type: json['type'],
+      password: json['password'],
+    );
+  }
+  Map toMap() {
+    var map = {};
+    var data = {};
+    var extraData = {};
+    var enterprises = {};
+    enterprises["cellphone"] = cellphone; 
+    extraData["enterprises"] = enterprises;
+    data["type"] = type;
+    data["name"] = name;
+    data["email"] = email;
+    data["password"] = password; 
+    data["extra_data"] = extraData;
+    map["data"] = map;
+    
+    return map;
+  }
+
 }
