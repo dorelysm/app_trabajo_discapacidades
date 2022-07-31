@@ -1,28 +1,65 @@
 import 'package:flutter/material.dart';
 
-class nuevaVacantePage extends StatefulWidget {
-  const nuevaVacantePage({Key? key}) : super(key: key);
+class nuevoReclutadorPage extends StatefulWidget {
+  const nuevoReclutadorPage({Key? key}) : super(key: key);
 
   @override
-  State<nuevaVacantePage> createState() => _nuevaVacantePageState();
+  State<nuevoReclutadorPage> createState() => _nuevoReclutadorPageState();
 }
 
-class _nuevaVacantePageState extends State<nuevaVacantePage> {
+class _nuevoReclutadorPageState extends State<nuevoReclutadorPage> {
 
   GlobalKey<FormState> keyForm = GlobalKey();
 
   TextEditingController nombreTextController = TextEditingController();
-  TextEditingController modalidadTextController = TextEditingController();
-  TextEditingController tipoContratoTextController = TextEditingController();
-  TextEditingController rangoSalarialTextController = TextEditingController();
-  TextEditingController descripcionTextController = TextEditingController();
-  TextEditingController requerimientosTextController = TextEditingController();
+  TextEditingController apellidoTextController = TextEditingController();
+  TextEditingController idTextController = TextEditingController();
+  TextEditingController emailTextController = TextEditingController();
+  TextEditingController celularTextController = TextEditingController();
+  TextEditingController contrasenaTextController = TextEditingController();
 
 //Validaciones
 
   String? validarEntradaTexto(value) {
+    String pattern = r'^[a-zA-Z ]*$';
+    RegExp regExp = RegExp(pattern);
     if (value == null || value.isEmpty) {
       return "Campo obligatorio";
+    } else if (!regExp.hasMatch(value)) {
+      return "Debe contener solo letras";
+    } else {
+      return null;
+    }
+  }
+
+  String? validarEntradaNum(value) {
+    String pattern = r'^[0-9]*$';
+    RegExp regExp = RegExp(pattern);
+    if (value == null || value.isEmpty) {
+      return "Campo obligatorio";
+    } else if (!regExp.hasMatch(value)) {
+      return "Debe contener solo números";
+    } else {
+      return null;
+    }
+  }
+
+  String? validarCorreo(value) {
+    String pattern =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regExp = RegExp(pattern);
+    if (value == null || value.isEmpty) {
+      return "Ingrese el correo";
+    } else if (!regExp.hasMatch(value)) {
+      return "Ingrese un correo válido";
+    } else {
+      return null;
+    }
+  }
+
+  String? validarContrasena(value) {
+    if (value == null || value.isEmpty) {
+      return "Ingrese la contraseña";
     } else {
       return null;
     }
@@ -32,7 +69,7 @@ class _nuevaVacantePageState extends State<nuevaVacantePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Crear vacante'),
+          title: const Text('Nuevo reclutador'),
           backgroundColor: const Color(0xff0096C7),
         ),
       body: SingleChildScrollView(
@@ -40,14 +77,14 @@ class _nuevaVacantePageState extends State<nuevaVacantePage> {
           margin: const EdgeInsets.all(20.0),
           child: Form(
             key: keyForm,
-            child: formularioCreacionVacante(),
+            child: formularioNuevoReclutador(),
           ),
         ),
       ) 
     );
   }
   
-  Widget formularioCreacionVacante() {
+  Widget formularioNuevoReclutador() {
     return Column(
       children: <Widget>[
         const Padding(
@@ -66,7 +103,7 @@ class _nuevaVacantePageState extends State<nuevaVacantePage> {
           child: TextFormField(
             controller: nombreTextController,
             decoration: const InputDecoration(
-              labelText: 'Nombre del cargo',
+              labelText: 'Nombre',
               border: OutlineInputBorder(),
             ),
             validator: validarEntradaTexto,
@@ -75,34 +112,34 @@ class _nuevaVacantePageState extends State<nuevaVacantePage> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 30),
           child: TextFormField(
-            controller: modalidadTextController,
+            controller: apellidoTextController,
             decoration: const InputDecoration(
-              labelText: 'Modalidad de trabajo',
+              labelText: 'Apellido',
               border: OutlineInputBorder(),
             ),
-            //validator: validarEntradaTexto,
+            validator: validarEntradaTexto,
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 30),
           child: TextFormField(
-            controller: tipoContratoTextController,
+            controller: idTextController,
             decoration: const InputDecoration(
-              labelText: 'Tipo de contrato',
+              labelText: 'Número de identificación',
               border: OutlineInputBorder(),
             ),
-            //validator: validarEntradaTexto,
+            validator: validarEntradaNum,
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 30),
           child: TextFormField(
-            controller: rangoSalarialTextController,
+            controller: emailTextController,
             decoration: const InputDecoration(
-              labelText: 'Rango salarial',
+              labelText: 'Correo electrónico',
               border: OutlineInputBorder(),
             ),
-            //validator: validarEntradaTexto,
+            validator: validarCorreo,
           ),
         ),
         Padding(
@@ -110,12 +147,12 @@ class _nuevaVacantePageState extends State<nuevaVacantePage> {
           child: TextFormField(
             keyboardType: TextInputType.multiline,
             maxLines: null,
-            controller: descripcionTextController,
+            controller: celularTextController,
             decoration: const InputDecoration(
-              labelText: 'Descripción',
+              labelText: 'Celular',
               border: OutlineInputBorder(),
             ),
-            validator: validarEntradaTexto,
+            validator: validarEntradaNum,
           ),
         ),
         Padding(
@@ -123,12 +160,12 @@ class _nuevaVacantePageState extends State<nuevaVacantePage> {
           child: TextFormField(
             keyboardType: TextInputType.multiline,
             maxLines: null,
-            controller: requerimientosTextController,
+            controller: contrasenaTextController,
             decoration: const InputDecoration(
-              labelText: 'Requerimientos',
+              labelText: 'Contraseña',
               border: OutlineInputBorder(),
             ),
-            validator: validarEntradaTexto,
+            validator: validarContrasena,
           ),
         ),
         Padding(

@@ -13,6 +13,7 @@ import 'package:trabajo_discapacidades/pages/nat_home.dart';
 import 'package:trabajo_discapacidades/pages/nueva_vacante.dart';
 import 'package:trabajo_discapacidades/pages/rec_home.dart';
 import 'package:trabajo_discapacidades/pages/vacante.dart';
+import 'package:trabajo_discapacidades/pages/nuevo_reclutador.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
           "/consultas_empresas": (BuildContext context) => const ConsultasEmpresasPage(),
           "/vacante": (BuildContext context) => const vacantePage(),
           "/nueva_vacante": (BuildContext context) => const nuevaVacantePage(),
+          "/nueva_reclutador": (BuildContext context) => const nuevoReclutadorPage(),
         });
   }
 }

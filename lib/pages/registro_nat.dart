@@ -62,7 +62,7 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       //Color Scaffold
-      backgroundColor: Color(0xffEEF8FB),
+      backgroundColor: const Color(0xffEEF8FB),
       appBar: AppBar(
         title: const Text('Mis datos personales'),
         backgroundColor: const Color(0xff0096C7),
@@ -84,9 +84,9 @@ class _RegistroNatPageState extends State<RegistroNatPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 7),
       child: Card(
-        child: ListTile(leading: Icon(icon), title: item),
         elevation: 0,
         color: const Color(0xffEEF8FB),
+        child: ListTile(leading: Icon(icon), title: item),
       ),
     );
   }
