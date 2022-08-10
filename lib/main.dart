@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           elevatedButtonTheme: ElevatedButtonThemeData(
             //Tema de los botones
             style: ElevatedButton.styleFrom(
-                primary: const Color(0xff0096C7),
+                primary: const Color(0xff6D05F2),
                 textStyle: const TextStyle(
                   fontFamily: 'Rosario',
                   fontSize: 25,
